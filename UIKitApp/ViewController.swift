@@ -37,7 +37,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderAction() {
- 
+        mainLabel.text = String(slider.value)
+        view.backgroundColor = view.backgroundColor?.withAlphaComponent(CGFloat(slider.value))
     }
     
     // MARK: - Private Methods
