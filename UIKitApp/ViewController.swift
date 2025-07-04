@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var segmentedCotroller: UISegmentedControl!
     @IBOutlet var mainLabel: UILabel!
     @IBOutlet var slider: UISlider!
+    @IBOutlet var textField: UITextField!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -41,6 +42,19 @@ class ViewController: UIViewController {
         view.backgroundColor = view.backgroundColor?.withAlphaComponent(CGFloat(slider.value))
     }
     
+    @IBAction func doneButtonPressed() {
+        guard let inputText = textField.text, !inputText.isEmpty else {
+            showAlert(with: "Wrong format", and: "Enter your name")
+            return
+        }
+        mainLabel.text = inputText
+        
+        if let _ = Double(inputText) {
+            showAlert(with: "Wrong format1111", and: "Enter your name")
+            return
+        }
+    }
+    
     // MARK: - Private Methods
     private func setupMainLabel () {
         mainLabel.text = "\(slider.value)"
@@ -59,3 +73,15 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: - UIAlertController
+extension ViewController {
+    private func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            self.textField.text = ""
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+        
+    }
+}
