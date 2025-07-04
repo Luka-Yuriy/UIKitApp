@@ -37,6 +37,9 @@
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KMv-T0-AOx">
                                         <rect key="frame" x="-2" y="111.33333333333334" width="365" height="31"/>
+                                        <connections>
+                                            <action selector="sliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="tz3-UU-cEi"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                             </stackView>
@@ -52,6 +55,7 @@
                     <connections>
                         <outlet property="mainLabel" destination="v4A-ts-4Yg" id="nai-52-2p7"/>
                         <outlet property="segmentedCotroller" destination="mii-PS-g1c" id="6cp-4n-ZPZ"/>
+                        <outlet property="slider" destination="KMv-T0-AOx" id="h3h-aa-QN0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

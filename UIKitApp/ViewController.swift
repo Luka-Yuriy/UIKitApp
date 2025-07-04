@@ -11,11 +11,13 @@ class ViewController: UIViewController {
     // MARK: - IB Outlets
     @IBOutlet var segmentedCotroller: UISegmentedControl!
     @IBOutlet var mainLabel: UILabel!
+    @IBOutlet var slider: UISlider!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentedCotroller.insertSegment(withTitle: "Trird", at: 2, animated: false)
+        setupSlider()
         setupMainLabel()
     }
     
@@ -34,12 +36,25 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func sliderAction() {
+ 
+    }
+    
     // MARK: - Private Methods
     private func setupMainLabel () {
-        mainLabel.text = ""
+        mainLabel.text = "\(slider.value)"
         mainLabel.font = UIFont.systemFont(ofSize: 35)
         mainLabel.textAlignment = .center
         mainLabel.numberOfLines = 2
+    }
+    
+    private func setupSlider () {
+        slider.value = 1
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.minimumTrackTintColor = .yellow
+        slider.maximumTrackTintColor = .red
+        slider.thumbTintColor = .blue
     }
 }
 
