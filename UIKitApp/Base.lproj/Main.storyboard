@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="CCI-h4-xvs">
-                                <rect key="frame" x="16" y="79" width="361" height="271.33333333333331"/>
+                                <rect key="frame" x="16" y="79" width="361" height="578.33333333333337"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mii-PS-g1c">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="32"/>
@@ -56,6 +56,29 @@
                                             <action selector="doneButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="ahS-7y-VGN"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="39k-Ro-1HT">
+                                        <rect key="frame" x="0.0" y="301.33333333333331" width="361" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide Date Picker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-sC-YoP">
+                                                <rect key="frame" x="0.0" y="0.0" width="289" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGF-Lp-ZPk">
+                                                <rect key="frame" x="312" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="swithAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="tSC-c7-Ubv"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="kvl-PB-JdQ">
+                                        <rect key="frame" x="0.0" y="362" width="361" height="216"/>
+                                        <connections>
+                                            <action selector="datePickerAction" destination="BYZ-38-t0r" eventType="valueChanged" id="t7U-yl-YPm"/>
+                                        </connections>
+                                    </datePicker>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -68,9 +91,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="datePicker" destination="kvl-PB-JdQ" id="ku8-ov-p1Q"/>
                         <outlet property="mainLabel" destination="v4A-ts-4Yg" id="nai-52-2p7"/>
                         <outlet property="segmentedCotroller" destination="mii-PS-g1c" id="6cp-4n-ZPZ"/>
                         <outlet property="slider" destination="KMv-T0-AOx" id="h3h-aa-QN0"/>
+                        <outlet property="swithLabel" destination="gmX-sC-YoP" id="qe5-bQ-SSn"/>
                         <outlet property="textField" destination="F1p-Ni-l4k" id="N30-JN-tbw"/>
                     </connections>
                 </viewController>

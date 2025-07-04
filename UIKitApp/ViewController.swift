@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet var mainLabel: UILabel!
     @IBOutlet var slider: UISlider!
     @IBOutlet var textField: UITextField!
+    @IBOutlet var swithLabel: UILabel!
+    @IBOutlet var datePicker: UIDatePicker!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -47,12 +49,24 @@ class ViewController: UIViewController {
             showAlert(with: "Wrong format", and: "Enter your name")
             return
         }
-        mainLabel.text = inputText
         
         if let _ = Double(inputText) {
-            showAlert(with: "Wrong format1111", and: "Enter your name")
+            showAlert(with: "Wrong format", and: "Enter your name")
             return
         }
+        
+        mainLabel.text = inputText
+    }
+    
+    @IBAction func swithAction(_ sender: UISwitch) {
+        datePicker.isHidden = !sender.isOn
+        swithLabel.text = sender.isOn ? "Hide Date Picker" : "Show Date Picker"
+    }
+    
+    @IBAction func datePickerAction() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        mainLabel.text = dateFormatter.string(from: datePicker.date)
     }
     
     // MARK: - Private Methods
@@ -77,11 +91,11 @@ class ViewController: UIViewController {
 extension ViewController {
     private func showAlert(with title: String, and message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             self.textField.text = ""
         }
+        
         alert.addAction(okAction)
         present(alert, animated: true)
-        
     }
 }
