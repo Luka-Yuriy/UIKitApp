@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     // MARK: - IB Outlets
     @IBOutlet var segmentedCotroller: UISegmentedControl!
     @IBOutlet var mainLabel: UILabel!
@@ -21,7 +20,17 @@ class ViewController: UIViewController {
     
     // MARK: - IB Actions
     @IBAction func segmentedControllerAction() {
-        
+        switch segmentedCotroller.selectedSegmentIndex {
+        case 0:
+            mainLabel.text = "The first segment is selected"
+            mainLabel.textColor = .red
+        case 1:
+            mainLabel.text = "The second segment is selected"
+            mainLabel.textColor = .blue
+        default:
+            mainLabel.text = "The third segment is selected"
+            mainLabel.textColor = .yellow
+        }
     }
     
     // MARK: - Private Methods
