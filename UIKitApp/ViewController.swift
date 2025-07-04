@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var segmentedCotroller: UISegmentedControl!
     @IBOutlet var mainLabel: UILabel!
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentedCotroller.insertSegment(withTitle: "Trird", at: 2, animated: false)
@@ -40,6 +41,5 @@ class ViewController: UIViewController {
         mainLabel.textAlignment = .center
         mainLabel.numberOfLines = 2
     }
-
 }
 
